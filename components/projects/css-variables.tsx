@@ -57,7 +57,7 @@ export default function CSSVariables() {
         }}
       >
         <img
-          src="https://source.unsplash.com/800x600/?nature"
+          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop"
           alt="Nature"
           className="w-full rounded-lg"
           style={{

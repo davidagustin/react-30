@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "cypress run",
+    "test:e2e:headed": "cypress run --headed"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -23,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cypress": "^15.7.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.4",
     "tailwindcss": "^4",

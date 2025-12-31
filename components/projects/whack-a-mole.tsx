@@ -11,6 +11,7 @@ export default function WhackAMole() {
   const [isPlaying, setIsPlaying] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const gameIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (isPlaying && timeLeft > 0) {
@@ -26,17 +27,19 @@ export default function WhackAMole() {
 
       intervalRef.current = setInterval(() => {
         setActiveHole(Math.floor(Math.random() * holes.length));
-        setTimeout(() => setActiveHole(null), 800);
+        timeoutRef.current = setTimeout(() => setActiveHole(null), 800);
       }, 1000);
     } else {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (gameIntervalRef.current) clearInterval(gameIntervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
       setActiveHole(null);
     }
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (gameIntervalRef.current) clearInterval(gameIntervalRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [isPlaying, timeLeft]);
 
